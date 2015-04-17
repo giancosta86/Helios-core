@@ -1,0 +1,86 @@
+/*§
+  ===========================================================================
+  Helios - Core
+  ===========================================================================
+  Copyright (C) 2013-2015 Gianluca Costa
+  ===========================================================================
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  ===========================================================================
+*/
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://dl.bintray.com/giancosta86/Hephaestus'
+        }
+
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'info.gianlucacosta.moonlicense:moonlicense-gradle:3.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.1'
+        classpath 'info.gianlucacosta.aurora:aurora:2.0'
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'info.gianlucacosta.aurora'
+
+
+group = 'info.gianlucacosta.helios'
+archivesBaseName = 'helios-core'
+version = '1.7'
+
+description = 'Library of general-purpose, shared utilities'
+
+
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.2'
+    compile 'org.apache.commons:commons-lang3:3.1'
+}
+
+
+
+aurora {
+    docTask = 'javadoc'
+    gitHubUser = 'giancosta86'
+
+    author {
+        name = 'Gianluca Costa'
+        email = 'gianluca@gianlucacosta.info'
+        url = 'http://gianlucacosta.info/'
+    }
+
+    bintray {
+        user = project.bintrayUser
+        key = project.bintrayKey
+        repo = 'Hephaestus'
+        licenses = ['Apache-2.0']
+        labels = ['utilities', 'library', 'Java']
+    }
+}
+
+
+moonLicense {
+    license = apache2
+
+    productInfo {
+        productName = 'Helios - Core'
+        inceptionYear = 2013
+        copyrightHolder = 'Gianluca Costa'
+    }
+
+}
