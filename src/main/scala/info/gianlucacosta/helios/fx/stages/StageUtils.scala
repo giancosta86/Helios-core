@@ -18,5 +18,28 @@
   ===========================================================================
 */
 
-rootProject.name = 'Helios-core'
+package info.gianlucacosta.helios.fx.stages
 
+import scala.collection.JavaConversions._
+import info.gianlucacosta.helios.apps.AppInfo
+
+import javafx.scene.image.Image
+import javafx.stage.Stage
+
+/**
+  * Stage-related utility functions
+  */
+object StageUtils {
+  /**
+    * Assigns the given stage several icon sizes of the application's main icon
+    * @param stage The target stage
+    * @param appInfo The AppInfo object for the application
+    */
+  def setMainIcon(stage: Stage, appInfo: AppInfo): Unit = {
+    val iconImages = Seq(16, 32, 64, 128).map(size =>
+      appInfo.getMainIconImage(size)
+    )
+
+    stage.getIcons.setAll(iconImages)
+  }
+}

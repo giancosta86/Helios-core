@@ -18,5 +18,12 @@
   ===========================================================================
 */
 
-rootProject.name = 'Helios-core'
+package info.gianlucacosta.helios.fx
 
+import javafx.stage.Stage
+
+import info.gianlucacosta.helios.apps.AppInfo
+
+package object apps {
+  private[apps] type AppStartupCallback = (AppInfo, SplashStage, Stage) => Unit
+}

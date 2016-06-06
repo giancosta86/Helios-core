@@ -1,8 +1,12 @@
 # Helios - Core
 
-*Library of general-purpose, shared utilities*
+*Scala library of shared utilities*
 
 
-**Helios - Core** is one of the modules composing the [Helios](https://www.facebook.com/pages/Helios/206962992779275) project - a multifaceted generic Java library.
+**Helios - Core** is a general-purpose Scala/ScalaFX library belonging to the multifaceted [Helios](https://www.facebook.com/pages/Helios/206962992779275) project, as well as an [OSGi](https://www.osgi.org/) bundle.
 
-For further information, please refer to its javadoc documentation.
+
+The first version of Helios was released in 2013 and was dedicated to Java; Helios 2 now mainly targets Scala and ScalaFX.
+
+
+Helios is meant to evolve over time - please refer to its Scaladoc documentation for more details on its current packages.

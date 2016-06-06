@@ -2,7 +2,7 @@
   ===========================================================================
   Helios - Core
   ===========================================================================
-  Copyright (C) 2013-2015 Gianluca Costa
+  Copyright (C) 2013-2016 Gianluca Costa
   ===========================================================================
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -28,34 +28,40 @@ buildscript {
     }
 
     dependencies {
-        classpath 'info.gianlucacosta.moonlicense:moonlicense-gradle:3.0'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.1'
-        classpath 'info.gianlucacosta.aurora:aurora:2.0'
+        classpath 'info.gianlucacosta.moonlicense:moonlicense-gradle:4.3'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+        classpath 'info.gianlucacosta.aurora:aurora:6.0'
     }
 }
 
 
-apply plugin: 'java'
+apply plugin: 'scala'
+apply plugin: 'maven'
+apply plugin: 'osgi'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'info.gianlucacosta.moonlicense'
 apply plugin: 'info.gianlucacosta.aurora'
+
 
 
 group = 'info.gianlucacosta.helios'
 archivesBaseName = 'helios-core'
-version = '1.7'
+version = '2.0'
 
-description = 'Library of general-purpose, shared utilities'
+description = 'Scala library of shared utilities'
 
 
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.2'
-    compile 'org.apache.commons:commons-lang3:3.1'
+    generatedCompile 'org.scala-lang:scala-library:2.11.8'
+
+    compile 'org.scala-lang:scala-library:2.11.8'
+    compile 'org.scalafx:scalafx_2.11:8.0.60-R9'
 }
 
 
 
 aurora {
-    docTask = 'javadoc'
     gitHubUser = 'giancosta86'
 
     author {
@@ -65,11 +71,14 @@ aurora {
     }
 
     bintray {
-        user = project.bintrayUser
-        key = project.bintrayKey
         repo = 'Hephaestus'
         licenses = ['Apache-2.0']
-        labels = ['utilities', 'library', 'Java']
+        labels = [
+                'utilities',
+                'library',
+                'Scala',
+                'ScalaFX'
+        ]
     }
 }
 
