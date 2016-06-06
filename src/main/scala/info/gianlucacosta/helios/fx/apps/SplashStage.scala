@@ -24,11 +24,10 @@ import info.gianlucacosta.helios.apps.AppInfo
 import info.gianlucacosta.helios.fx.stages.StageUtils
 
 import scalafx.Includes._
-import scalafx.application.Platform
 import scalafx.geometry.{Insets, Pos}
 import scalafx.scene.Scene
 import scalafx.scene.control.{Label, ProgressIndicator}
-import scalafx.scene.image.{Image, ImageView}
+import scalafx.scene.image.ImageView
 import scalafx.scene.layout._
 import scalafx.scene.paint.Color
 import scalafx.stage.{Stage, StageStyle}

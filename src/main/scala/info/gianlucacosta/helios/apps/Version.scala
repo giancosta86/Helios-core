@@ -31,7 +31,6 @@ object Version {
     *
     * @param versionString The version string. Its format must be:
     *                      <b>major.minor(.build(.release))(-snapshot)</b>
-    *
     * @return The parsed version
     */
   def parse(versionString: String): Version = {
@@ -63,11 +62,11 @@ object Version {
   * pre-release versions)
   */
 case class Version(
-                  major: Int,
-                  minor: Int,
-                  build: Int,
-                  release: Int,
-                  snapshot: Boolean
+                    major: Int,
+                    minor: Int,
+                    build: Int,
+                    release: Int,
+                    snapshot: Boolean
                   ) {
   override val toString: String = {
     val buildString =

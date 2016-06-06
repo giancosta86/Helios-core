@@ -29,10 +29,10 @@ import scalafx.application.Platform
 
 
 private class StartupThread(
-                                      appInfo: AppInfo,
-                                      splashStage: SplashStage,
-                                      primaryStage: Stage,
-                                      startupCallback: AppStartupCallback
+                             appInfo: AppInfo,
+                             splashStage: SplashStage,
+                             primaryStage: Stage,
+                             startupCallback: AppStartupCallback
                            ) extends Thread {
   setDaemon(true)
 
@@ -45,12 +45,12 @@ private class StartupThread(
         splashStage.close()
       }
     } catch {
-    case ex: Exception =>
-      Platform.runLater {
-        Alerts.showException(ex, "Startup error")
+      case ex: Exception =>
+        Platform.runLater {
+          Alerts.showException(ex, "Startup error")
 
-        System.exit(1)
-      }
-  }
+          System.exit(1)
+        }
+    }
   }
 }

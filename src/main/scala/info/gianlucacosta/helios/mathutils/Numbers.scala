@@ -76,7 +76,7 @@ case object Numbers {
     * <li>Otherwise, print at most 2 fraction digits</li>
     * </ul>
     *
-    * @param value             The value to print
+    * @param value The value to print
     * @return A user-friendly string representation
     */
   def smartString(value: Double): String = {

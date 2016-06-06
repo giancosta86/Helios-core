@@ -21,10 +21,8 @@
 package info.gianlucacosta.helios.desktop
 
 import java.awt.Desktop
-import java.io.{File, IOException}
+import java.io.File
 import java.net.URI
-import java.nio.file.attribute.BasicFileAttributes
-import java.nio.file.{FileVisitResult, Files, Path, SimpleFileVisitor}
 
 /**
   * Desktop utilities

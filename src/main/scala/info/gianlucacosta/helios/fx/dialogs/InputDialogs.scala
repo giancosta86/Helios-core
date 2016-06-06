@@ -30,6 +30,7 @@ import scalafx.scene.control._
 case object InputDialogs {
   /**
     * Shows a dialog with "Yes", "No" and "Cancel" button
+    *
     * @param message
     * @param header
     * @return Some(true) if the user chooses "Yes", Some(false) if the user chooses "No", None otherwise
@@ -105,7 +106,7 @@ case object InputDialogs {
                     minValue: Double = Double.MinValue,
                     maxValue: Double = Double.MaxValue,
                     header: String = "",
-                    formatter: Double=>String = Numbers.smartString
+                    formatter: Double => String = Numbers.smartString
                   ): Option[Double] = {
     while (true) {
       val inputString = askForString(
@@ -182,10 +183,10 @@ case object InputDialogs {
   /**
     * Asks the user to choose an item from a given list
     *
-    * @param message The message
-    * @param items The items list. Must not be empty
+    * @param message     The message
+    * @param items       The items list. Must not be empty
     * @param initialItem The initial item. If None, the first item in the list will be used
-    * @param header The dialog's header
+    * @param header      The dialog's header
     * @tparam T The type of the items
     * @return Some(chosen item) or None
     */

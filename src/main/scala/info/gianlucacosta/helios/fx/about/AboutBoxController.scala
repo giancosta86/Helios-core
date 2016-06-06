@@ -25,8 +25,6 @@ import javafx.fxml.FXML
 import info.gianlucacosta.helios.apps.AppInfo
 import info.gianlucacosta.helios.desktop.DesktopUtils
 
-import scalafx.scene.image.Image
-
 /**
   * Automatically instantiated and configured by AboutBox
   */

@@ -67,6 +67,7 @@ case object Alerts {
 
   /**
     * Shows an information box
+    *
     * @param message
     * @param header
     */
@@ -76,6 +77,7 @@ case object Alerts {
 
   /**
     * Shows a warning box
+    *
     * @param message
     * @param header
     */
@@ -85,6 +87,7 @@ case object Alerts {
 
   /**
     * Shows an error box
+    *
     * @param message
     * @param header
     */
@@ -95,12 +98,13 @@ case object Alerts {
   /**
     * Shows an exception box. More precisely, its message is:
     * <ul>
-    *   <li>The exception's <i>localized message</i>, if it is not null or empty</li>
-    *   <li>The simple name of the exception's class otherwise</li>
+    * <li>The exception's <i>localized message</i>, if it is not null or empty</li>
+    * <li>The simple name of the exception's class otherwise</li>
     * </ul>
     *
     * Furthermore, if its alertType is set to <i>Error</i> (the default),
     * the exception's stack trace is printed out to stderr.
+    *
     * @param exception
     * @param header
     * @param alertType

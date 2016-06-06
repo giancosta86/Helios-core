@@ -53,7 +53,8 @@ class Point2DExtensions private[extensions](x: Double, y: Double) extends Point2
 
   /**
     * Returns a new point: (max(0, min(X, width)), max(0, min(Y, height)))
-    * @param width The max X coordinate for the point
+    *
+    * @param width  The max X coordinate for the point
     * @param height The max Y coordinate for the point
     * @return
     */
@@ -77,6 +78,7 @@ class Point2DExtensions private[extensions](x: Double, y: Double) extends Point2
 
   /**
     * Returns a new point, clipped to stay in the given dimension
+    *
     * @param dimension
     * @return
     */

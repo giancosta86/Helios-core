@@ -25,41 +25,39 @@ import javafx.beans.property.{SimpleBooleanProperty, SimpleObjectProperty}
 import javafx.event.EventHandler
 import javafx.stage.{Stage, WindowEvent}
 
-import info.gianlucacosta.helios.fx.dialogs.{Alerts, InputDialogs}
 import info.gianlucacosta.helios.fx.dialogs.FileChooserExtensions._
+import info.gianlucacosta.helios.fx.dialogs.{Alerts, InputDialogs}
 
 import scalafx.stage.FileChooser
-
-import scalafx.Includes._
 
 /**
   * Single-document-interface (SDI) workspace.
   *
   * Main features:
   * <ul>
-  *   <li>
-  *     <i>documentFile</i> and <i>modified</i> Java & JavaFX properties, to handle the current
-  *     document's status
-  *   </li>
+  * <li>
+  * <i>documentFile</i> and <i>modified</i> Java & JavaFX properties, to handle the current
+  * document's status
+  * </li>
   *
-  *   <li>
-  *     <i>New/Open/Save/Save As</i> actions, that employ the abstract methods as well as the
-  *     FileChooser (applying the extension methods provided by Helios) to suitably handle the
-  *     document's lifecycle
-  *   </li>
+  * <li>
+  * <i>New/Open/Save/Save As</i> actions, that employ the abstract methods as well as the
+  * FileChooser (applying the extension methods provided by Helios) to suitably handle the
+  * document's lifecycle
+  * </li>
   *
-  *   <li>
-  *     Shows a stacktrace and an error dialog in case of exceptions, so you don't need
-  *     to worry about exceptions in your implementations.
-  *   </li>
+  * <li>
+  * Shows a stacktrace and an error dialog in case of exceptions, so you don't need
+  * to worry about exceptions in your implementations.
+  * </li>
   *
-  *   <li>
-  *     When the user closes the given stage and the document was modified,
-  *     a confirmation dialog is shown
-  *   </li>
+  * <li>
+  * When the user closes the given stage and the document was modified,
+  * a confirmation dialog is shown
+  * </li>
   * </ul>
   *
-  * @param stage The target stage for this workspace (usually the primary stage)
+  * @param stage               The target stage for this workspace (usually the primary stage)
   * @param documentFileChooser The file chooser to open/save documents
   */
 abstract class Workspace(stage: Stage, documentFileChooser: FileChooser) {
@@ -208,7 +206,6 @@ abstract class Workspace(stage: Stage, documentFileChooser: FileChooser) {
     * Saves the document to the given file
     *
     * @param targetFile The target file
-    *
     * @return true if the document was successfully saved
     */
   protected def doSave(targetFile: File): Boolean

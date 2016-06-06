@@ -28,6 +28,7 @@ import java.nio.file.{FileVisitResult, Files, Path, SimpleFileVisitor}
   * File-related utilities
   */
 object FileUtils {
+
   private class DeltreeVisitor extends SimpleFileVisitor[Path]() {
     var _errorsFound = false
 

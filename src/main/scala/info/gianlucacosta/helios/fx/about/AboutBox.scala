@@ -23,7 +23,6 @@ package info.gianlucacosta.helios.fx.about
 import javafx.fxml.FXMLLoader
 
 import info.gianlucacosta.helios.apps.AppInfo
-import info.gianlucacosta.helios.fx.stages.StageUtils
 
 import scalafx.application.Platform
 import scalafx.scene.control.Alert.AlertType

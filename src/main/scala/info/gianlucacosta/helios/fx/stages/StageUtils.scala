@@ -20,11 +20,11 @@
 
 package info.gianlucacosta.helios.fx.stages
 
-import scala.collection.JavaConversions._
+import javafx.stage.Stage
+
 import info.gianlucacosta.helios.apps.AppInfo
 
-import javafx.scene.image.Image
-import javafx.stage.Stage
+import scala.collection.JavaConversions._
 
 /**
   * Stage-related utility functions
@@ -32,7 +32,8 @@ import javafx.stage.Stage
 object StageUtils {
   /**
     * Assigns the given stage several icon sizes of the application's main icon
-    * @param stage The target stage
+    *
+    * @param stage   The target stage
     * @param appInfo The AppInfo object for the application
     */
   def setMainIcon(stage: Stage, appInfo: AppInfo): Unit = {
