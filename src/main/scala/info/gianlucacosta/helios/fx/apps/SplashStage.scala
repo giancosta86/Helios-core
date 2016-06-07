@@ -24,6 +24,7 @@ import info.gianlucacosta.helios.apps.AppInfo
 import info.gianlucacosta.helios.fx.stages.StageUtils
 
 import scalafx.Includes._
+import scalafx.application.Platform
 import scalafx.geometry.{Insets, Pos}
 import scalafx.scene.Scene
 import scalafx.scene.control.{Label, ProgressIndicator}
@@ -83,6 +84,8 @@ class SplashStage private[apps](appInfo: AppInfo) extends Stage(StageStyle.UNDEC
 
 
   def statusText_=(statusText: String): Unit = {
-    statusLabel.text = statusText
+    Platform.runLater {
+      statusLabel.text = statusText
+    }
   }
 }
