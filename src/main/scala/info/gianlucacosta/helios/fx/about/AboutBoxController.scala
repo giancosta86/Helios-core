@@ -69,23 +69,23 @@ class AboutBoxController {
 
 
   @FXML
-  private var nameLabel: javafx.scene.control.Label = _
+  var nameLabel: javafx.scene.control.Label = _
 
   @FXML
-  private var versionLabel: javafx.scene.control.Label = _
+  var versionLabel: javafx.scene.control.Label = _
 
   @FXML
-  private var copyrightLabel: javafx.scene.control.Label = _
+  var copyrightLabel: javafx.scene.control.Label = _
 
   @FXML
-  private var licenseLabel: javafx.scene.control.Label = _
+  var licenseLabel: javafx.scene.control.Label = _
 
   @FXML
-  private var additionalInfoLabel: javafx.scene.control.Label = _
+  var additionalInfoLabel: javafx.scene.control.Label = _
 
   @FXML
-  private var showFacebookPageButton: javafx.scene.control.Button = _
+  var showFacebookPageButton: javafx.scene.control.Button = _
 
   @FXML
-  private var mainIconImageView: javafx.scene.image.ImageView = _
+  var mainIconImageView: javafx.scene.image.ImageView = _
 }
