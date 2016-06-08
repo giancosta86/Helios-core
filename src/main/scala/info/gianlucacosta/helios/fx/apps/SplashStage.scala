@@ -40,7 +40,7 @@ import scalafx.stage.{Stage, StageStyle}
   *
   * @param appInfo The AppInfo object
   */
-class SplashStage private[apps](appInfo: AppInfo) extends Stage(StageStyle.UNDECORATED) {
+class SplashStage private[apps](appInfo: AppInfo) extends Stage(StageStyle.Undecorated) {
   title = s"Loading ${appInfo.title}..."
 
   private val statusLabel = Label {
