@@ -29,7 +29,7 @@ import scalafx.stage.FileChooser
 
 
 object FileChooserExtensions {
-  private var latestChosenFiles = Map[FileChooser, File]()
+  private var latestChosenFiles = Map[Int, File]()
 
   implicit def convertFileChooser(fileChooser: FileChooser): FileChooserExtensions =
     new FileChooserExtensions(fileChooser)
@@ -74,7 +74,7 @@ class FileChooserExtensions private(fileChooser: FileChooser) {
       return null
     }
 
-    FileChooserExtensions.latestChosenFiles += (fileChooser -> chosenFile)
+    FileChooserExtensions.latestChosenFiles += (System.identityHashCode(fileChooser) -> chosenFile)
 
     val fileHasExtension = chosenFile.getName.split('.').length > 1
 
@@ -101,7 +101,9 @@ class FileChooserExtensions private(fileChooser: FileChooser) {
 
 
   private def setupInitialDirectory(): Unit = {
-    val latestChosenFileOption = FileChooserExtensions.latestChosenFiles.get(fileChooser)
+    val latestChosenFileOption = FileChooserExtensions.latestChosenFiles.get(
+      System.identityHashCode(fileChooser)
+    )
 
     latestChosenFileOption.foreach(latestChosenFile =>
       fileChooser.initialDirectory = latestChosenFile.getParentFile
