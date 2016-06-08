@@ -59,7 +59,7 @@ class FileChooserExtensions private(fileChooser: FileChooser) {
     * Shows the <i>Save</i> dialog:
     * <ol>
     * <li>In the directory of its latest opened/saved file</li>
-    * <li>If no extension is provided, add the first extension of the current extension filter,
+    * <li>If no extension is provided, adds the first extension of the current extension filter,
     * unless it ends with * (as in *.*)</li>
     * </ol>
     *
@@ -74,20 +74,26 @@ class FileChooserExtensions private(fileChooser: FileChooser) {
       return null
     }
 
-    val fileExtension = chosenFile.getName.split('.').last
+    FileChooserExtensions.latestChosenFiles += (fileChooser -> chosenFile)
 
-    if (fileExtension.isEmpty) {
+    val fileHasExtension = chosenFile.getName.split('.').length > 1
+
+    if (!fileHasExtension) {
       val selectedFilter = fileChooser.getSelectedExtensionFilter
 
-      val filterMainExtension = selectedFilter.getExtensions.head
+      val filterMainExtension =
+        selectedFilter.getExtensions
+          .head
+          .split('.')
+          .last
 
-      val defaultExtension =
+      val defaultExtensionString =
         if (filterMainExtension.endsWith("*"))
           ""
         else
-          filterMainExtension
+          "." + filterMainExtension
 
-      new File(s"${chosenFile.getAbsolutePath}${defaultExtension}")
+      new File(s"${chosenFile.getAbsolutePath}${defaultExtensionString}")
     } else {
       chosenFile
     }
