@@ -53,7 +53,8 @@ import scalafx.stage.FileChooser
   *
   * <li>
   * When the user closes the given stage and the document was modified,
-  * a confirmation dialog is shown
+  * a confirmation dialog is shown - provided you have called <i>bindEvents()</i> to setup the
+  * event handlers.
   * </li>
   * </ul>
   *
@@ -65,13 +66,19 @@ abstract class Workspace(stage: Stage, documentFileChooser: FileChooser) {
   val modifiedProperty = new SimpleBooleanProperty(false)
 
 
-  stage.addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler[WindowEvent] {
-    override def handle(event: WindowEvent): Unit = {
-      if (!canLeaveDocument) {
-        event.consume()
+  /**
+    * Binds the workspace lifecycle to GUI events - for example, shows a confirmation dialog on the
+    * WINDOW_CLOSE_REQUEST event of the backing stage
+    */
+  def bindEvents(): Unit = {
+    stage.addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler[WindowEvent] {
+      override def handle(event: WindowEvent): Unit = {
+        if (!canLeaveDocument) {
+          event.consume()
+        }
       }
-    }
-  })
+    })
+  }
 
 
   def documentFile: Option[File] = {
@@ -99,21 +106,24 @@ abstract class Workspace(stage: Stage, documentFileChooser: FileChooser) {
   }
 
 
-  def newDocument(): Unit = {
+  def newDocument(): Boolean = {
     try {
       if (!canLeaveDocument) {
-        return
+        return false
       }
 
       if (!doNew()) {
-        return
+        return false
       }
 
       documentFile = None
       modified = false
+
+      true
     } catch {
       case ex: Exception =>
         Alerts.showException(ex)
+        false
     }
   }
 
@@ -125,27 +135,30 @@ abstract class Workspace(stage: Stage, documentFileChooser: FileChooser) {
   protected def doNew(): Boolean
 
 
-  def openDocument(): Unit = {
+  def openDocument(): Boolean = {
     try {
       if (!canLeaveDocument) {
-        return
+        return false
       }
 
       val selectedFile = documentFileChooser.smartOpen(stage)
       if (selectedFile == null) {
-        return
+        return false
       }
 
 
       if (!doOpen(selectedFile)) {
-        return
+        return false
       }
 
       documentFile = Some(selectedFile)
       modified = false
+
+      true
     } catch {
       case ex: Exception =>
         Alerts.showException(ex)
+        false
     }
   }
 
@@ -159,7 +172,7 @@ abstract class Workspace(stage: Stage, documentFileChooser: FileChooser) {
   protected def doOpen(sourceFile: File): Boolean
 
 
-  def saveDocument(): Unit = {
+  def saveDocument(): Boolean = {
     try {
       documentFile
         .map(file => {
@@ -177,27 +190,30 @@ abstract class Workspace(stage: Stage, documentFileChooser: FileChooser) {
     } catch {
       case ex: Exception =>
         Alerts.showException(ex)
+        false
     }
   }
 
 
-  def saveAsDocument(): Unit = {
+  def saveAsDocument(): Boolean = {
     try {
       val selectedFile = documentFileChooser.smartSave(stage)
       if (selectedFile == null) {
-        return
+        return false
       }
 
       if (!doSave(selectedFile)) {
-        return
+        return false
       }
 
       documentFile = Some(selectedFile)
       modified = false
+      true
     }
     catch {
       case ex: Exception =>
         Alerts.showException(ex)
+        false
     }
   }
 
@@ -214,7 +230,6 @@ abstract class Workspace(stage: Stage, documentFileChooser: FileChooser) {
   /**
     * Closes the stage, as if the used clicked on its close button.
     *
-    * Consequently, a confirmation dialog will be shown if there are pending changes.
     */
   def closeStage() {
     val closeEvent = new WindowEvent(
