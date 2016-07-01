@@ -20,16 +20,16 @@
 
 package info.gianlucacosta.helios.mathutils
 
-import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.util.Locale
 
 /**
   * Number-related utilities
   */
 case object Numbers {
-  private val defaultFormatter = new DecimalFormat {
-    setMaximumFractionDigits(2)
-  }
-
+  private val defaultFormatter = NumberFormat.getNumberInstance(Locale.ENGLISH)
+  defaultFormatter.setMaximumFractionDigits(2)
+  defaultFormatter.setGroupingUsed(false)
 
   /**
     * Tries to convert a Double to a Long - succeeding only if the Double
@@ -61,9 +61,9 @@ case object Numbers {
     * @return A user-friendly string representation
     */
   def smartString(value: Double, maxFractionDigits: Int): String = {
-    val formatter = new DecimalFormat {
-      setMaximumFractionDigits(maxFractionDigits)
-    }
+    val formatter = NumberFormat.getNumberInstance(Locale.ENGLISH)
+    formatter.setMaximumFractionDigits(maxFractionDigits)
+    formatter.setGroupingUsed(false)
 
     formatter.format(value)
   }
