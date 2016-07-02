@@ -31,25 +31,27 @@ import scalafx.scene.control.{Alert, ButtonBar, ButtonType}
 /**
   * Dialog showing the application's information.
   *
-  * This class can be instantiated in ANY thread - GUI operations are automatically
-  * run on the GUI thread.
+  * This class must be instantiated on the GUI thread.
   *
   * @param appInfo an AppInfo object - for example, an instance of AuroraAppInfo
   */
 class AboutBox(appInfo: AppInfo) extends Alert(AlertType.None) {
-  private val loader = new FXMLLoader(this.getClass.getResource("AboutBox.fxml"))
-  private val root = loader.load[javafx.scene.layout.Pane]
-  private val controller = loader.getController[AboutBoxController]
+  private val loader: FXMLLoader =
+    new FXMLLoader(this.getClass.getResource("AboutBox.fxml"))
+
+  private val root: javafx.scene.layout.Pane =
+    loader.load[javafx.scene.layout.Pane]
+
+  private val controller: AboutBoxController =
+    loader.getController[AboutBoxController]
 
 
   Platform.runLater {
     controller.setup(appInfo)
 
     dialogPane().setContent(root)
-  }
 
 
-  Platform.runLater {
     buttonTypes = Seq(
       new ButtonType("OK", ButtonBar.ButtonData.OKDone)
     )
