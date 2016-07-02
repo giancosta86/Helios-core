@@ -20,21 +20,21 @@
 
 package info.gianlucacosta.helios.fx.dialogs
 
+import scalafx.Includes._
 import scalafx.application.Platform
 import scalafx.geometry.Insets
 import scalafx.scene.Scene
 import scalafx.scene.control.ProgressIndicator
 import scalafx.scene.layout.BorderPane
 import scalafx.stage.{Modality, Stage, WindowEvent}
-import scalafx.Includes._
 
 /**
   * A modal dialog showing a progress indicator while an action is performed.
   *
   * The dialog cannot be closed by the user.
   *
-  * @param owner The owner stage
-  * @param dialogTitle The title
+  * @param owner                 The owner stage
+  * @param dialogTitle           The title
   * @param progressIndicatorSize The size (width and height) of the progress indicator
   */
 class BusyDialog(owner: Stage, dialogTitle: String, progressIndicatorSize: Double = 150) extends Stage {
