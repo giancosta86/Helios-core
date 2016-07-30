@@ -46,7 +46,7 @@ apply plugin: 'info.gianlucacosta.aurora'
 
 group = 'info.gianlucacosta.helios'
 archivesBaseName = 'helios-core'
-version = '4.1'
+version = '5.0'
 
 description = 'Scala library of shared utilities'
 
@@ -56,7 +56,6 @@ dependencies {
     generatedCompile 'org.scala-lang:scala-library:2.11.8'
 
     compile 'org.scala-lang:scala-library:2.11.8'
-    compile 'org.scalafx:scalafx_2.11:8.0.92-R10'
 }
 
 
@@ -76,8 +75,7 @@ aurora {
         labels = [
                 'utilities',
                 'library',
-                'Scala',
-                'ScalaFX'
+                'Scala'
         ]
     }
 }

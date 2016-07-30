@@ -5,23 +5,22 @@
 
 ## Introduction
 
-**Helios-Core** is a general-purpose Scala / ScalaFX library belonging to the multifaceted [Helios](https://www.facebook.com/pages/Helios/206962992779275) project.
-
-The first version of Helios dates back to 2013 and was written in Java; Helios 2 is now mainly based on Scala and ScalaFX.
+**Helios-Core** is a general-purpose Scala library belonging to the multifaceted [Helios](https://www.facebook.com/pages/Helios/206962992779275) project.
 
 
 Helios-core focuses on different areas:
 
-* *application versioning and startup*
-
-* *JavaFX / ScalaFX extensions*
+* *application versioning*
 
 * *file-system*, *desktop integration* and *OS information* utilities
 
 * *general-purpose functions*
 
 
-As an important point, Helios-core 2 is designed to be compatible with [Aurora](https://github.com/giancosta86/Aurora), making it very easy to employ the artifacts created by Aurora.
+Other libraries of the project cover specific domains - for example, ScalaFX utilities are provided by [Helios-fx](https://github.com/giancosta86/Helios-fx)
+
+
+As an important point, Helios is designed to be compatible with [Aurora](https://github.com/giancosta86/Aurora), making it very easy to employ the artifacts created by Aurora.
 
 Helios is meant to evolve over time - please refer to its Scaladoc or its source code for more details on its current packages.
 
