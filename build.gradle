@@ -30,7 +30,7 @@ buildscript {
     dependencies {
         classpath 'info.gianlucacosta.moonlicense:moonlicense-gradle:4.3'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
-        classpath 'info.gianlucacosta.aurora:aurora:7.0'
+        classpath 'info.gianlucacosta.aurora:aurora:8.0'
     }
 }
 
@@ -46,7 +46,7 @@ apply plugin: 'info.gianlucacosta.aurora'
 
 group = 'info.gianlucacosta.helios'
 archivesBaseName = 'helios-core'
-version = '5.1'
+version = '6.0-SNAPSHOT'
 
 description = 'Scala library of shared utilities'
 
