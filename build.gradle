@@ -46,10 +46,11 @@ apply plugin: 'info.gianlucacosta.aurora'
 
 group = 'info.gianlucacosta.helios'
 archivesBaseName = 'helios-core'
-version = '6.0-SNAPSHOT'
+version = '6.0'
 
 description = 'Scala library of shared utilities'
 
+ext.facebookPage = "https://www.facebook.com/Helios-206962992779275"
 
 
 dependencies {

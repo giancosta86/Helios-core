@@ -17,7 +17,13 @@ Helios-core focuses on different areas:
 * *general-purpose functions*
 
 
-Other libraries of the project cover specific domains - for example, ScalaFX utilities are provided by [Helios-fx](https://github.com/giancosta86/Helios-fx)
+Other libraries of the project cover specific domains - for example:
+
+* ScalaFX utilities are provided by [Helios-fx](https://github.com/giancosta86/Helios-fx)
+
+* JPA extensions are in [Helios-jpa](https://github.com/giancosta86/Helios-jpa)
+
+* Reflection utilities are provided by [Helios-reflection](https://github.com/giancosta86/Helios-reflection)
 
 
 As an important point, Helios is designed to be compatible with [Aurora](https://github.com/giancosta86/Aurora), making it very easy to employ the artifacts created by Aurora.
