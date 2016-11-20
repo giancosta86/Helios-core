@@ -1,4 +1,4 @@
-/*§
+/*^
   ===========================================================================
   Helios - Core
   ===========================================================================
@@ -28,8 +28,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'info.gianlucacosta.moonlicense:moonlicense-gradle:4.3'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+        classpath 'info.gianlucacosta.moonlicense:moonlicense-gradle:5.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         classpath 'info.gianlucacosta.aurora:aurora:8.0'
     }
 }
