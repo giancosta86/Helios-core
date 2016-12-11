@@ -46,7 +46,7 @@ apply plugin: 'info.gianlucacosta.aurora'
 
 group = 'info.gianlucacosta.helios'
 archivesBaseName = 'helios-core'
-version = '6.0'
+version = '6.1-SNAPSHOT'
 
 description = 'Scala library of shared utilities'
 
