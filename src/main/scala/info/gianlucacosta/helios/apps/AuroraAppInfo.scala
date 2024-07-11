@@ -32,6 +32,6 @@ case class AuroraAppInfo(artifactInfoObject: Any, iconsObject: Any) extends AppI
   }
 
   override def getMainIcon(size: Int): InputStream = {
-    iconGetter.invoke(iconsObject, new Integer(size)).asInstanceOf[InputStream]
+    iconGetter.invoke(iconsObject, Integer.valueOf(size)).asInstanceOf[InputStream]
   }
 }

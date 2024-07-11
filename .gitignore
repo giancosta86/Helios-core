@@ -4,3 +4,5 @@
 *.iml
 
 /src/generated/
+/target/
+/bin/

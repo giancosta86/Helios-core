@@ -1,45 +1,37 @@
 buildscript {
     repositories {
         maven {
-            url 'https://dl.bintray.com/giancosta86/Hephaestus'
+            url 'http://localhost:8080/snapshots'
         }
 
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'info.gianlucacosta.moonlicense:moonlicense-gradle:5.0'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
-        classpath 'info.gianlucacosta.aurora:aurora:8.0'
+        classpath 'info.gianlucacosta.aurora:aurora:10.0.0-SNAPSHOT'
     }
 }
 
+plugins {
+    id 'org.openjfx.javafxplugin' version '0.0.10'
 
-apply plugin: 'scala'
-apply plugin: 'maven'
-apply plugin: 'osgi'
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'info.gianlucacosta.moonlicense'
+    id 'scala'
+    id 'maven'
+}
+
 apply plugin: 'info.gianlucacosta.aurora'
-
-
 
 group = 'info.gianlucacosta.helios'
 archivesBaseName = 'helios-core'
-version = '7.0.0'
+version = '7.0.0-SNAPSHOT'
 
 description = 'Scala library of shared utilities'
 
-ext.facebookPage = "https://www.facebook.com/Helios-206962992779275"
-
-
 dependencies {
-    generatedCompile 'org.scala-lang:scala-library:2.11.8'
+    generatedCompile 'org.scala-lang:scala-library:2.13.14'
 
-    compile 'org.scala-lang:scala-library:2.11.8'
+    compile 'org.scala-lang:scala-library:2.13.14'
 }
-
-
 
 aurora {
     gitHubUser = 'giancosta86'
@@ -47,28 +39,10 @@ aurora {
     author {
         name = 'Gianluca Costa'
         email = 'gianluca@gianlucacosta.info'
-        url = 'http://gianlucacosta.info/'
+        url = 'https://gianlucacosta.info/'
     }
 
-    bintray {
-        repo = 'Hephaestus'
-        licenses = ['Apache-2.0']
-        labels = [
-                'utilities',
-                'library',
-                'Scala'
-        ]
+    mavenDeploy {
+        url = 'http://localhost:8080/snapshots'
     }
-}
-
-
-moonLicense {
-    license = apache2
-
-    productInfo {
-        productName = 'Helios - Core'
-        inceptionYear = 2013
-        copyrightHolder = 'Gianluca Costa'
-    }
-
 }

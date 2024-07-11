@@ -16,9 +16,9 @@ object DesktopUtils {
   private val EmptyExceptionCallBack: ExceptionCallback = (ex: Exception) => {}
 
 
-  private def runInThread(action: (Desktop) => Unit, exceptionCallback: ExceptionCallback) {
+  private def runInThread(action: (Desktop) => Unit, exceptionCallback: ExceptionCallback): Unit = {
     val externalThread = new Thread() {
-      override def run() {
+      override def run(): Unit = {
         try {
           val desktop = Desktop.getDesktop
 
@@ -46,7 +46,7 @@ object DesktopUtils {
     * @param url               The url to open
     * @param exceptionCallback Callback invoked in case of exception
     */
-  def openBrowser(url: String, exceptionCallback: ExceptionCallback = EmptyExceptionCallBack) {
+  def openBrowser(url: String, exceptionCallback: ExceptionCallback = EmptyExceptionCallBack): Unit = {
     runInThread(
       desktop => desktop.browse(new URI(url)),
       exceptionCallback

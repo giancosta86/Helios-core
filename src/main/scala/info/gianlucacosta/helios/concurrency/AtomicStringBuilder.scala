@@ -13,7 +13,7 @@ class AtomicStringBuilder {
     *
     * @param string The string to print out
     */
-  def print(string: String) {
+  def print(string: String): Unit = {
     synchronized {
       internalBuffer.append(string)
     }
@@ -24,7 +24,7 @@ class AtomicStringBuilder {
     *
     * @param string The line to print out
     */
-  def println(string: String) {
+  def println(string: String): Unit = {
     synchronized {
       print(string + "\n")
     }

@@ -4,7 +4,7 @@ import java.nio.file._
 import java.time.Duration
 import java.util.concurrent.TimeUnit
 
-import scala.collection.JavaConversions._
+import scala.jdk.CollectionConverters._
 
 /**
   * Daemon thread checking for changes (create/modify/delete) in the given directory.
@@ -24,7 +24,7 @@ abstract class DirectoryWatcher(directory: Path, timeout: Duration) extends Thre
     *
     * @param events A list of WatchEvent objects
     */
-  def onEvents(events: List[WatchEvent[_]])
+  def onEvents(events: List[WatchEvent[_]]): Unit
 
 
   override def run(): Unit = {
@@ -42,7 +42,7 @@ abstract class DirectoryWatcher(directory: Path, timeout: Duration) extends Thre
           val watchKey = watcher.poll(timeout.toMillis, TimeUnit.MILLISECONDS)
 
           if (watchKey != null) {
-            val events = watchKey.pollEvents().toList
+            val events = watchKey.pollEvents().asScala.toList
 
             if (events.nonEmpty) {
               onEvents(events)
