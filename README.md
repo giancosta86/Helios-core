@@ -30,8 +30,6 @@ Helios is meant to evolve over time - please refer to its Scaladoc or its source
 
 For further information about downloading or referencing Helios-core via Gradle or Maven, please visit [its page](https://bintray.com/giancosta86/Hephaestus/Helios-core) on Hephaestus, my Gradle/Maven repository.
 
-Helios-core is now also an [OSGi](https://www.osgi.org/) bundle.
-
 Integration with Aurora requires Aurora 6.0 or later.
 
 ## Further references
