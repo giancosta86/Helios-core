@@ -24,7 +24,6 @@ case class AuroraAppInfo(artifactInfoObject: Any, iconsObject: Any) extends AppI
   override val copyrightHolder: String = readField("copyrightHolder")
 
   override val website: String = readField("website")
-  override val facebookPage: String = readField("facebookPage")
 
 
   private def readField[T](fieldName: String): T = {

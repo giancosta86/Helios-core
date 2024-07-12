@@ -16,7 +16,6 @@ trait AppInfo {
   val copyrightHolder: String
   val license: String
   val website: String
-  val facebookPage: String
 
   def getMainIcon(size: Int): InputStream
 
